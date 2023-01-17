@@ -43,8 +43,8 @@ public class SimpleUnitTest {
      * </p>
      */
     @Test
-    public void testAdd(){
-        Assert.assertEquals("Неправильне множення",25,add(5,5));
+    public void testMultiply(){
+        Assert.assertEquals("Неправильний результат множення",25,multiply(5,5));
     }
 
     /**
@@ -53,8 +53,8 @@ public class SimpleUnitTest {
      * </p>
      */
     @Test
-    public void testAddWithNegativeData(){
-        Assert.assertEquals("Невірнка сума",25,add(-5,-5));
+    public void testMultiplyWithNegativeData(){
+        Assert.assertEquals("Неправильний результат множення",25,multiply(-5,-5));
     }
 
 
@@ -64,7 +64,7 @@ public class SimpleUnitTest {
     }
 
     //Метод помножує два числа
-    public static int add(int a, int b){
+    public static int multiply(int a, int b){
         return a * b;
     }
 }

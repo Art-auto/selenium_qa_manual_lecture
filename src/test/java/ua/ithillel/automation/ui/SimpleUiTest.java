@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.concurrent.TimeUnit;
+
 
 /**
  * <img src="https://yt3.ggpht.com/sfPp150iI6VC5f4laY-osycP6qgKlT0YDXy47aTwG6HQncqecE36Lt7MG4o9h6L3S93tLcUb_6c=s900-c-k-c0x00ffffff-no-rj"
@@ -22,7 +24,7 @@ public class SimpleUiTest {
      * яка дозволяє різним іншим програмам взаємодіяти з браузером,
      * керувати його поведінкою, отримувати від браузера якісь дані і змушувати браузер виконувати якісь команди.<br>
      * В методі <b style="color: #ffd700">setUpDriver</b>  ми налаштовуємо роботу chromeDriver. В константі path ми зберігаємо наш шлях до файлу chromedriver.exe.<br>
-     * В <b style="color: #ffd700">System.setProperty</b> - встановлюємо зміні нашого середовища. Тобто говоримо нашій OS що існує дврайвер у нашій системі.
+     * В <b style="color: #ffd700">System.setProperty</b> - встановлюємо зміні нашого середовища. Тобто говоримо нашій OS що існує драйвер у нашій системі.
      * </p>
      */
     @BeforeClass
@@ -38,6 +40,7 @@ public class SimpleUiTest {
     public void precondition() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     /**
@@ -49,18 +52,18 @@ public class SimpleUiTest {
         driver.get("https://guest:welcome2qauto@qauto.forstudy.space/");
 
         /*
-         Метод findElement може шукати один елемнт за допомогою рірзних способів.
-         Їх дуже багато але ми розберемо базові.
+         Метод findElement може шукати один елемент за допомогою різних способів.
+         Їх дуже багато, але ми розберемо базові.
          */
-        //Пошук по cssSelector кнопки Sign up. Також бачимо метод click - який говрить сам за себе. Натискає кнопку Sign up
+        //Пошук по cssSelector кнопки Sign up. Також бачимо метод click - який говорить сам за себе. Натискає кнопку Sign up
         /*driver.findElement(By.cssSelector(".hero-descriptor_btn")).click();
         Thread.sleep(2000);*/
 
-        // Пошук по xpath кнопки Sign up. Також бачимо метод click - який говрить сам за себе. Натискає кнопку Sign up
+        // Пошук по xpath кнопки Sign up. Також бачимо метод click - який говорить сам за себе. Натискає кнопку Sign up
         /*driver.findElement(By.xpath("//button[@class='hero-descriptor_btn btn btn-primary']")).click();
         Thread.sleep(2000);*/
 
-        // Пошук по className кнопки Sign up. Також бачимо метод click - який говрить сам за себе. Натискає кнопку Sign up
+        // Пошук по className кнопки Sign up. Також бачимо метод click - який говорить сам за себе. Натискає кнопку Sign up
         /*driver.findElement(By.className("hero-descriptor_btn")).click();
         Thread.sleep(2000);*/
 
@@ -69,7 +72,7 @@ public class SimpleUiTest {
         driver.findElement(By.id("signupName")).sendKeys("Test");
         Thread.sleep(2000);*/
 
-        //Метод findElements шукає багато елементів. Задараз метод знайде всі теги div на відкритій сторінці.
+        //Метод findElements шукає багато елементів. Зараз метод знайде всі теги div на відкритій сторінці.
         //driver.findElements(By.cssSelector("div"));
     }
 
@@ -111,10 +114,10 @@ public class SimpleUiTest {
         //Записуємо в зміну signUpButton кнопку Sign up
         WebElement signUpButton = driver.findElement(By.cssSelector(".hero-descriptor_btn"));
 
-        // Метод getCssValue повертає значення css яке ви вказали у аргументі. Виводимо в консоль який в кнопки колір
+        // Метод getCssValue повертає значення css яке ви вказали в аргументі. Виводимо в консоль який в кнопки колір
         System.out.println(signUpButton.getCssValue("color"));
 
-        // Метод getAttribute повертає значення атрибуту яке ви вказали у аргументі. Виводимо в консоль значення класу.
+        // Метод getAttribute повертає значення атрибута яке ви вказали у аргументі. Виводимо в консоль значення класу.
         //System.out.println(signUpButton.getAttribute("class"));
 
         // Метод getText повертає текст який зберігається у вказаному елементі. Виводимо в консоль значення яке зберігається в елементі.
@@ -135,9 +138,9 @@ public class SimpleUiTest {
 
         /*
         Ви бачите три зміні
-        1.  actualText - зберігає текст який ми витягли з кнопки signUpButton
+        1. actualText - зберігає текст який ми витягли з кнопки signUpButton
         2. expectedText - це текст який ми очікуємо
-        3. result - містить результат порівняння двох попередніх зміних
+        3. result - містить результат порівняння двох попередніх змінних
          Assert.assertTrue - якщо true то тест пройдено успішно, якщо false тест не пройдено.
         */
         /*String actualText = signUpButton.getText();
@@ -151,7 +154,6 @@ public class SimpleUiTest {
     public void postCondition() {
         //Метод quit() завершує роботу драйвера, закриваючи всі пов’язані вікна.
         driver.quit();
-
     }
 
 }
