@@ -7,7 +7,7 @@ import org.junit.*;
  * alt="" width="150" height="150">
  * <h1>Junit</h1>
  * <p style="font-size:12px">Цей клас описує базову роботу с бібліотекою Junit. JUnit – це Java-фреймворк для тестування,
- * перша його мета це тестування окремих частин коду, наприклад, методів або класів. Але його також використовоють у API/UI тестах.
+ * перша його мета це тестування окремих частин коду, наприклад, методів або класів. Але його також використовують у API/UI тестах.
  * Наша задача розібрати базові анотації.</p>
  * <br><br>
  * <h2>Додаткова інформація</h2>
@@ -23,7 +23,7 @@ public class JUnitSimpleExample {
      */
     @BeforeClass
     public static void beforeClass(){
-        System.out.println("Before calss");
+        System.out.println("Before class");
     }
 
     /**
